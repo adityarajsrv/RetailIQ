@@ -2,7 +2,7 @@ import logo from '/logo.png';
 
 const Navbar = () => {
   return (
-    <div className="w-full h-16 bg-gray-50 flex flex-row justify-between px-5 shadow-md items-center">
+    <div className="w-full h-16 bg-gray-50 flex flex-row justify-between px-10 shadow-md items-center">
         <div className="flex flex-row justify-start items-center font-bold space-x-2">
             <img src={logo} alt="" className='rounded-full h-10 w-10 mt-1'/>
             <h1 className='text-3xl'>Retail<span className='text-[#00A2E8]'>IQ</span></h1>
