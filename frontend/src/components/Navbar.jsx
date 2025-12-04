@@ -1,4 +1,5 @@
 import logo from '/logo.png';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
             <h1 className='text-3xl'>Retail<span className='text-[#00A2E8]'>IQ</span></h1>
         </div>
         <div className='flex flex-row justify-between items-center space-x-8 text-lg'>
-            <h2 className='font-semibold cursor-pointer hover:text-[#00A2E8]'>Home</h2>
+            <Link to="/" ><h2 className='font-semibold cursor-pointer hover:text-[#00A2E8]'>Home</h2></Link>
             <h2 className='font-semibold cursor-pointer hover:text-[#00A2E8]'>About</h2>
             <h2 className='font-semibold cursor-pointer hover:text-[#00A2E8]'>Features</h2>
             <h2 className='font-semibold cursor-pointer hover:text-[#00A2E8]'>Contact</h2>
