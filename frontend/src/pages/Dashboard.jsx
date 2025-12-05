@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Navbar from "../components/Navbar";
 import { FaRobot } from "react-icons/fa";
 import { HiArrowTrendingDown, HiArrowTrendingUp } from "react-icons/hi2";
@@ -14,7 +15,7 @@ import {
 } from "recharts";
 import { MdOutlineInventory2 } from "react-icons/md";
 
-const Dashboard = () => {
+const Dashboard = ({ scrollToSection, scrollToTop }) => {
   const revenueData = [
     { day: "Mon", revenue: 3200 },
     { day: "Tue", revenue: 4500 },
@@ -64,7 +65,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
       <main className="ml-20 w-[90%] mt-10">
         <div className="py-5 px-4 bg-linear-to-r from-blue-100 to-blue-50 rounded-2xl shadow-md">
           <div className="flex flex-row justify-start space-x-4">
