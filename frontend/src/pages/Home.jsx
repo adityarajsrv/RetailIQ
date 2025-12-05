@@ -5,8 +5,6 @@ import {
   AlertTriangle,
   Zap,
   RefreshCw,
-  CheckCircle,
-  Star,
   ArrowRight,
 } from "lucide-react";
 import dashboardPreview from "../assets/dashboard.png";
@@ -43,7 +41,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
-      <section className="pt-20 pb-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+      <section className="pt-20 pb-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto mb-5">
         <div className="text-center">
           <div className="inline-block mb-4">
             <p className="inline-flex items-center text-[#00A2E8] font-medium bg-[#bee8fa] px-3 py-1.5 rounded-full text-md">
@@ -70,25 +68,9 @@ const Home = () => {
               </button>
             </Link>
           </div>
-          <div className="mt-12 flex items-center justify-center gap-6 text-gray-500">
-            <div className="flex items-center gap-2">
-              <CheckCircle size={20} className="text-green-500" />
-              <span>Trusted by 500+ retailers</span>
-            </div>
-            <div className="flex items-center gap-1">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star
-                  key={i}
-                  size={18}
-                  className="text-yellow-400 fill-yellow-400"
-                />
-              ))}
-              <span className="ml-1">4.9/5 from 243 reviews</span>
-            </div>
-          </div>
         </div>
       </section>
-      <section className="py-12 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+      <section className="py-12 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto mb-5">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Everything You Need, At A Glance
@@ -98,7 +80,7 @@ const Home = () => {
             matter.
           </p>
         </div>
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           <div className="absolute -inset-4 bg-linear-to-r from-[#00A2E8]/20 to-blue-200/20 rounded-3xl blur-xl opacity-70 animate-pulse"></div>
           <img
             src={dashboardPreview}
@@ -109,7 +91,7 @@ const Home = () => {
       </section>
       <section
         id="features"
-        className="py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto"
+        className="py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto mb-5"
       >
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
