@@ -43,7 +43,7 @@ const Home = () => {
       <Navbar scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
       <section className="pt-20 pb-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto mb-5">
         <div className="text-center">
-          <div className="inline-block mb-4">
+          <div className="inline-block mb-5">
             <p className="inline-flex items-center text-[#00A2E8] font-medium bg-[#bee8fa] px-3 py-1.5 rounded-full text-md">
               <Zap className="mr-1.5" size={14} />
               Now with AI-powered insights
@@ -59,8 +59,8 @@ const Home = () => {
             dashboard.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="cursor-pointer px-8 py-3 bg-[#00A2E8] text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105 flex items-center gap-2">
-              Start Free Trial <ChevronRight size={20} />
+            <button className="cursor-pointer px-8 py-3 bg-[#00A2E8] text-white font-semibold rounded-lg hover:bg-blue-500 transition duration-300 transform hover:scale-105 flex items-center gap-2">
+              Connect Your Store <ChevronRight size={20} />
             </button>
             <Link to="/dashboard">
               <button className="cursor-pointer px-8 py-3 border-2 border-[#00A2E8] text-[#00A2E8] font-semibold rounded-lg hover:bg-blue-50 transition duration-300">
