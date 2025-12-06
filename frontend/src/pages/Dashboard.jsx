@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Navbar from "../components/Navbar";
-import { FaRobot } from "react-icons/fa";
+// import { FaRobot } from "react-icons/fa";
 import { HiArrowTrendingDown, HiArrowTrendingUp } from "react-icons/hi2";
 import { FiShoppingBag, FiActivity, FiTrendingUp } from "react-icons/fi";
 import { LuPackage, LuUsers } from "react-icons/lu";
@@ -14,6 +14,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { MdOutlineInventory2 } from "react-icons/md";
+import AIChatBot from "../components/AiChatBot";
 
 const Dashboard = ({ scrollToSection, scrollToTop }) => {
   const revenueData = [
@@ -436,10 +437,11 @@ const Dashboard = ({ scrollToSection, scrollToTop }) => {
           </div>
         </div>
       </main>
-      <button className="cursor-pointer fixed bottom-3 right-3 z-50 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-3 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 flex items-center space-x-2">
+      {/* <button className="cursor-pointer fixed bottom-3 right-3 z-50 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-3 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 flex items-center space-x-2">
         <FaRobot className="w-5 h-5" />
         <span className="font-semibold">Ask AI</span>
-      </button>
+      </button> */}
+      <AIChatBot />
     </div>
   );
 };
