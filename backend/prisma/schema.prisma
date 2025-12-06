@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Shop {
+  id          Int      @id @default(autoincrement())
+  shop        String   @unique
+  accessToken String
+  scope       String?
+  installedAt DateTime @default(now())
+  isActive    Boolean  @default(true)
+
+  users        User[]
+  emailPrompts EmailPrompt[]
+  products     Product[]
+  orders       Order[]
+  customers    Customer[]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  shopId    Int
+  email     String?
+  createdAt DateTime @default(now())
+
+  shop Shop @relation(fields: [shopId], references: [id])
+}
+
+model EmailPrompt {
+  id        Int      @id @default(autoincrement())
+  shopId    Int
+  category  String
+  prompt    String
+  createdAt DateTime @default(now())
+
+  shop Shop @relation(fields: [shopId], references: [id])
+}
+
+model WebhookLog {
+  id         Int      @id @default(autoincrement())
+  topic      String
+  payload    Json
+  shopDomain String
+  createdAt  DateTime @default(now())
+}
+
+model Product {
+  id         BigInt   @id
+  shopId     Int
+  title      String?
+  handle     String?
+  vendor     String?
+  productJson Json
+  createdAt  DateTime @default(now())
+
+  shop Shop @relation(fields: [shopId], references: [id])
+}
+
+model Customer {
+  id         BigInt   @id
+  shopId     Int
+  email      String?
+  firstName  String?
+  lastName   String?
+  totalSpent String?      // store as string from Shopify to avoid float issues
+  customerJson Json
+  createdAt  DateTime @default(now())
+
+  shop Shop @relation(fields: [shopId], references: [id])
+}
+
+model Order {
+  id         BigInt   @id
+  shopId     Int
+  orderNumber Int?
+  totalPrice String?
+  createdAtAt DateTime  @map("created_at") @default(now())
+  orderJson  Json
+  createdAt  DateTime @default(now())
+
+  shop Shop @relation(fields: [shopId], references: [id])
+}
