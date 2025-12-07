@@ -6,6 +6,7 @@ import authRoutes from "../routes/auth.routes.js";
 import shopRoutes from "../routes/shop.routes.js";
 import webhookRoutes from "../routes/webhook.routes.js";
 import syncRoutes from "../routes/sync.routes.js";
+import dashboardRoutes from "../routes/dashboard.routes.js";
 
 const app = express();
 app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
@@ -15,6 +16,7 @@ app.use(session({ secret: process.env.SHOPIFY_API_SECRET || "secret", resave: fa
 app.use("/auth", authRoutes);
 app.use("/api", shopRoutes);
 app.use("/api", syncRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 app.use("/webhooks", webhookRoutes);
 
 export default app;
