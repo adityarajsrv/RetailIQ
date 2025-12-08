@@ -14,7 +14,6 @@ export async function registerDefaultWebhooks(shop, accessToken) {
     try {
       await shopifyRequest(shop, accessToken, "post", "webhooks.json", payload);
     } catch (e) {
-      // webhook may already exist; ignore
       // console.warn("webhook error", e.response?.data || e.message);
     }
   }
@@ -24,7 +23,6 @@ export async function ordersCreateHandler(req, res) {
   const payload = req.body;
   const shopDomain = req.get("X-Shopify-Shop-Domain") || "";
   await prisma.webhookLog.create({ data: { topic: "orders/create", payload, shopDomain } });
-  // You can enqueue processing here. For now, ack.
   res.status(200).send("ok");
 }
 

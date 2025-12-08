@@ -37,7 +37,6 @@ function toBigIntSafe(v) {
 }
 
 async function findShopByIdOrDomain(shopParam) {
-  // accept either numeric id or domain
   if (!shopParam) return null;
   const maybeId = Number(shopParam);
   if (!Number.isNaN(maybeId)) {
@@ -48,7 +47,7 @@ async function findShopByIdOrDomain(shopParam) {
 
 export async function backfillProducts(req, res) {
   try {
-    const shopParam = req.params.shopId; // can be id or domain
+    const shopParam = req.params.shopId; 
     const shopRec = await findShopByIdOrDomain(shopParam);
     if (!shopRec) return res.status(404).json({ error: "shop not found" });
 

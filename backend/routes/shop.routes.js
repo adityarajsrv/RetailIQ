@@ -8,8 +8,8 @@ import {
 
 const router = express.Router();
 
-router.get("/shops", listShops);        // GET /api/shops
-router.get("/shops/:id", getShop);      // GET /api/shops/:id
-router.post("/shops", registerShop);    // POST /api/shops  <-- NEW
+router.get("/shops", listShops);
+router.get("/shops/:id", getShop);      
+router.post("/shops", registerShop);    
 
 export default router;

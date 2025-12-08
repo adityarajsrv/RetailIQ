@@ -4,6 +4,6 @@ import { getDashboard } from "../controllers/dashboard.controller.js";
 
 const router = express.Router();
 
-router.get("/:shopId", getDashboard); // GET /api/dashboard/:shopId
+router.get("/:shopId", getDashboard); 
 
 export default router;

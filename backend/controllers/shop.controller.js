@@ -13,7 +13,6 @@ export async function getShop(req, res) {
   res.json(shop);
 }
 
-// NEW: register shop manually (for dev)
 export async function registerShop(req, res) {
   try {
     const { shop, accessToken, scope } = req.body;

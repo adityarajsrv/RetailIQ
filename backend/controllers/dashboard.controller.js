@@ -30,14 +30,12 @@ export async function getDashboard(req, res) {
       select: { id: true, email: true, firstName: true, lastName: true, totalSpent: true },
     });
 
-    // orders by date (group by date)
     const orders = await prisma.order.findMany({
       where: { shopId },
       select: { id: true, totalPrice: true, createdAt: true },
       orderBy: { createdAt: "asc" },
     });
 
-    // aggregate by date (YYYY-MM-DD)
     const ordersByDate = {};
     orders.forEach((o) => {
       const d = new Date(o.createdAt).toISOString().slice(0, 10);
