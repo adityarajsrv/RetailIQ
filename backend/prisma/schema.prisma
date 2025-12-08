@@ -67,7 +67,7 @@ model Customer {
   email      String?
   firstName  String?
   lastName   String?
-  totalSpent String?      // store as string from Shopify to avoid float issues
+  totalSpent Decimal? @db.Decimal(10,2)
   customerJson Json
   createdAt  DateTime @default(now())
 
@@ -75,13 +75,12 @@ model Customer {
 }
 
 model Order {
-  id         BigInt   @id
-  shopId     Int
+  id          BigInt   @id
+  shopId      Int
   orderNumber Int?
-  totalPrice String?
-  createdAtAt DateTime  @map("created_at") @default(now())
-  orderJson  Json
-  createdAt  DateTime @default(now())
+  totalPrice  Decimal? @db.Decimal(10,2)
+  createdAt   DateTime @map("created_at")
+  orderJson   Json
 
   shop Shop @relation(fields: [shopId], references: [id])
 }
