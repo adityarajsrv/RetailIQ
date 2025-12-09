@@ -99,7 +99,7 @@ export async function backfillCustomers(req, res) {
           email: c.email ?? null,
           firstName: c.first_name ?? null,
           lastName: c.last_name ?? null,
-          totalSpent: c.total_spent ? parseFloat(c.total_spent) : null,
+          totalSpent: c.total_spent ? c.total_spent.toString() : null,
           customerJson: c,
         },
         create: {
@@ -136,7 +136,7 @@ export async function backfillOrders(req, res) {
         where: { id: typeof id === "bigint" ? id : Number(id) },
         update: {
           orderNumber: o.order_number ?? null,
-          totalPrice: o.total_price ? parseFloat(o.total_price) : null,
+          totalPrice: o.total_price ? o.total_price.toString() : null,
           orderJson: o,
           createdAt: o.created_at ? new Date(o.created_at) : undefined,
         },

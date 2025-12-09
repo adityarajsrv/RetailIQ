@@ -23,6 +23,8 @@ export async function getDashboard(req, res) {
       _sum: { totalPrice: true },
     });
 
+    const revenue = Number(revenueAgg._sum.totalPrice ?? 0);
+
     const topCustomers = await prisma.customer.findMany({
       where: { shopId },
       orderBy: { totalSpent: "desc" },
@@ -39,8 +41,10 @@ export async function getDashboard(req, res) {
     const ordersByDate = {};
     orders.forEach((o) => {
       const d = new Date(o.createdAt).toISOString().slice(0, 10);
-      ordersByDate[d] = (ordersByDate[d] || 0) + (o.totalPrice || 0);
+      const price = o.totalPrice ? Number(o.totalPrice) : 0;
+      ordersByDate[d] = (ordersByDate[d] || 0) + price;
     });
+
 
     const ordersByDateArr = Object.entries(ordersByDate).map(([date, revenue]) => ({ date, revenue }));
 
