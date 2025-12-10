@@ -14,7 +14,6 @@ export async function registerDefaultWebhooks(shop, accessToken) {
     try {
       await shopifyRequest(shop, accessToken, "post", "webhooks.json", payload);
     } catch (e) {
-      // console.warn("webhook error", e.response?.data || e.message);
     }
   }
 }
