@@ -9,7 +9,7 @@ import {
 const router = express.Router();
 
 router.get("/shops", listShops);
-router.get("/shops/:shopDomain", getShop);
+router.get("/shops/:id", getShop);      
 router.post("/shops", registerShop);    
 
 export default router;
